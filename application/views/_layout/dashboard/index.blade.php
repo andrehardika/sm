@@ -35,11 +35,7 @@
 <body>
 	<div class="container-fluid" id="wrapper">
 		<!-- SIDEBAR -->
-		@if($this->config->item('coder') == 'front')
-		@include('_layout/dashboard/sidebar-ui')
-		@else
 		@include('_layout/dashboard/sidebar')
-		@endif
 		<div id="content">
 			<div class="content-nav">
 				<nav class="navbar navbar-default">
@@ -57,14 +53,12 @@
 						</div>
 						<div class="collapse navbar-collapse" id="menu">
 							<ul class="nav navbar-nav navbar-right">
-								@if(show_sidebar_menu('dashboard/notifikasi', $link_privileges))
 								<li class="dropdown notifikasi">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 										<i class="fa fa-envelope"></i>
 									</a>
 									<ul class="dropdown-menu notifikasi-list"></ul>
 								</li>
-								@endif
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ str_replace('@lumajang', '', $this->session->userdata('identity')) }} <span class="caret"></span></a>
 									<ul class="dropdown-menu">
