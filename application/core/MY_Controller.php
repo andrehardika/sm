@@ -3,7 +3,6 @@
 class MY_Controller extends CI_Controller {
 
   protected $_accessable;
-  protected $_warga;
   protected $_csrf;
 
   public function __construct()
