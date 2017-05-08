@@ -56,13 +56,49 @@ class Categories_m extends MY_Model
 		}
 	}
 
-	public function defineLevelCategoryByParentId($category_id)
+	//for update only
+	public function defineParentIdByCategoryId($category_id)
 	{
 		if (is_null($category_id) || empty($category_id)) {
-			return $sub_category_level = 0;
+			return null;
+		}
+	}
+
+	//transaction_type -> 0=insert, 1=update
+	public function defineLevelCategoryByParentId($category_id, $transaction_type, $prev_category_id = NULL)
+	{
+		if ($transaction_type === 0) {
+			//insert
+			if (is_null($category_id) || empty($category_id)) {
+				return '0';
+			}else{
+				$sub_category_level= $this->fields('level')->get($category_id)->level;
+				return $sub_category_level+1;
+			}
 		}else{
-			$sub_category_level= $this->fields('level')->get($category_id)->level;
-			return $sub_category_level+1;
+			//update
+			// jika inputan kosong
+			if (is_null($category_id) || empty($category_id)) {
+				// untuk sub-kategorinya yang parent_id nya = category_id sebelumnya jadi null dan levelnya jadi 0
+				$this->where('parent_id', $prev_category_id)->update(array('parent_id'=> NULL ,'level'=>'0'));
+
+				// kategori sekarang levelnya jadi 0 parent_id jadi null
+				return '0';
+			}
+			// jika inputan berbeda dimana kategori tsb merupakan kategori induk bagi yang lainnya
+			elseif ($category_id !== $prev_category_id) {
+				// kategori induk mendapatkan/merubah parent_id dan level ditambah 1 mengikuti parent_id yg berubah
+				$sub_category_level= ($this->fields('level')->get($category_id)->level) +1;
+
+				// sub-sub kategori yang bersangkutan ikut berubah selain parent_idnya levelnya ditambah 1 dari level ikut kategori induk	
+				$this->where('parent_id', $prev_category_id)->update(array('level'=>$sub_category_level+1));
+				
+				//kembalikan nilai sub kategori level
+				return $sub_category_level;
+			}
+			else{
+				return $this->fields('level')->get($category_id)->level;	
+			}
 		}
 	}
 }
