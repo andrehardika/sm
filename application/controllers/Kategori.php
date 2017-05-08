@@ -35,6 +35,37 @@ class Kategori extends MY_Controller
 	{
 		//TODO SIMPAN
 		$input = $this->input->post();
-		dump($input);
+		
+		//ambil hanya id sub
+		$input['parent_id'] = $this->categories_m->splitIdAndName($input['parent_id']);
+		
+		//cek keberadaan data
+		if (!$this->categories_m->checkDataAvailabilityById($input['parent_id'])) {
+			$this->message('Terjadi kesalahan pada sistem. Ikuti format pengisian sub-kategori dengan benar');
+			$this->go('kategori/create');
+		}
+
+		//menentukan level kategori baru
+		$input['level'] = $this->categories_m->defineLevelCategoryByParentId($input['parent_id']);
+		
+		//TODO upload icon kategori
+
+		$input['slug'] = $this->slug->create_uri($input);
+
+		//insert ke db
+		$query = $this->categories_m
+		->from_form(NULL, array(
+			'parent_id' => $input['parent_id'],
+			'slug' => $input['slug'],
+			'level' => $input['level']
+		))
+		->insert();
+		if ($query === FALSE) {
+			$this->message('Kategori gagal ditambahkan.', 'warning');
+		}else{
+			$this->message('Kategori berhasil ditambahkan.', 'success');
+		}
+
+		$this->go('kategori');
 	}
 }

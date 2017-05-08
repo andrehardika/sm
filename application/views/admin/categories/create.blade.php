@@ -20,10 +20,11 @@
 					<div class="form-group">
 						<label for="">Deskripsi</label>
 						{{ form_error('description') }}
-						<textarea class="form-control content" name="description"></textarea>
+						<textarea class="form-control content" name="description" placeholder="deskripsi kategori"></textarea>
 					</div>
 					<div class="form-group">
-						<input name="parent_id" list="sub-kategori" class="form-control" placeholder="masukkan kode atau nama kategori" autocomplete="off" required>
+						<label for="">Sub-Kategori dari (kosongi jika bukan sub kategori manapun)</label>
+						<input name="parent_id" list="sub-kategori" class="form-control" placeholder="masukkan kode atau nama kategori" autocomplete="off">
 						<datalist id="sub-kategori">
 							@foreach($categories as $category)
 								<option value="{{ $category->id. ' | '.$category->name }}">
