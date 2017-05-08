@@ -36,13 +36,12 @@
 							<td class="text-center">{{ date('d/m/Y', strtotime($category->created_at)) }}</td>
 							<td class="text-center"><span class="label label-{{ (is_null($category->deleted_at)) ? 'success' : 'danger' }}">{{ (is_null($category->deleted_at)) ? 'aktif' : 'tidak aktif' }}</span></td>
 							<td class="text-center">
-								<a href="{{ site_url('kategori/detail/'. $category->slug) }}" class="btn btn-xs btn-default" title="selengkapnya"><i class="fa fa-ellipsis-h"></i></a>
 								<a href="{{ site_url('kategori/sunting/'. $category->id) }}" class="btn btn-xs btn-default" title="sunting"><i class="fa fa-pencil"></i></a>
 								<a href="{{ site_url('kategori/hapus/'.$category->id) }}" class="btn btn-xs btn-default" title="hapus" onclick="return confirm('Sub-Kategori dan Produk yang berkaitan dengan kategori ini akan hilang. Anda yakin?')"><i class="fa fa-trash"></i></a>
 								@if($category->deleted_at)
 
 								@endif
-								<a href="#" class="btn btn-xs btn-danger" title="non-aktifkan"><i class="fa fa-power-off"></i></a>
+								<a href="{{ (!is_null($category->deleted_at)) ? site_url('kategori/aktifkan/'.$category->id) : site_url('kategori/nonaktifkan/'.$category->id) }}" class="btn btn-xs btn-{{ (!is_null($category->deleted_at)) ? 'success' : 'danger' }}" title="{{ (!is_null($category->deleted_at)) ? 'aktifkan' : 'non-aktifkan' }}" onclick="alert('Anda yakin? Semua sub-kategori yang berhubungan juga akan terhapus.')"><i class="fa fa-power-off"></i></a>
 							</td>
 						</tr>
 						@endforeach

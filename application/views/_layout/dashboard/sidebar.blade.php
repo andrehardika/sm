@@ -22,6 +22,7 @@
 				</ul>
 			</li>
 			<li class="nav-label">Produk</li>
+			<li><a href="{{ site_url('etalase') }}"><i class="fa fa-fw fa-truck"></i><span class="nav-label">Etalase</span></a></li>
 			<li><a href="{{ site_url('kategori') }}"><i class="fa fa-fw fa-truck"></i><span class="nav-label">Kategori</span></a></li>
 			<li>
 				<a href="#nav-surat-masuk" data-toggle="collapse" aria-controls="nav-surat-masuk">

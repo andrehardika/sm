@@ -129,4 +129,24 @@ class Kategori extends MY_Controller
 			$this->go('kategori');
 		}
 	}
+
+	public function nonaktifkan($id = NULL)
+	{
+		if (is_null($id) || empty($id)) {
+			$this->message('Terjadi kesalahan saat mengunjungi halaman', 'danger');
+		}else{
+			//soft delete category
+			$query = $this->categories_m->force_delete($id);
+
+			//soft delete semua sub kategori dengan parent_id = id kategori induk
+			// $sub_category_query = $this->categories_m->delete(array('parent_id' => $id));
+
+			if ($query === FALSE || $sub_category_query === FALSE) {
+				$this->message('Terjadi kesalahan sistem. Coba lagi nanti.','warning');
+			}else{
+				$this->message('Berhasil menon-aktifkan kategori dan sub-kategori yang bersangkutan','success');
+			}
+		}
+		$this->go('kategori');
+	}
 }
