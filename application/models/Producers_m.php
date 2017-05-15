@@ -40,4 +40,19 @@ class Producers_m extends MY_Model
 		$this->soft_deletes = TRUE;
 		parent::__construct();
 	}
+
+	public function splitIdAndName($value)
+	{
+		return str_replace(' ', '', substr($value, 0, strpos($value, '|')));
+	}
+
+	public function checkDataAvailabilityById($id)
+	{
+		$query = $this->fields('id')->get($id);
+		if ($query === FALSE) {
+			return FALSE;
+		}else{
+			return TRUE;
+		}
+	}
 }

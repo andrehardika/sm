@@ -8,7 +8,7 @@
 			<div class="panel-heading">
 				<h3 class="panel-title pull-left">Daftar Etalase Produk</h3>
 				<div class="btn-group pull-right">
-					<a href="#" class="btn btn-default btn-sm" title="Tulis berita"><i class="fa fa-plus"></i></a>
+					<a href="{{ site_url('produk/tambah') }}" class="btn btn-default btn-sm" title="Tambah produk"><i class="fa fa-plus"></i></a>
 					<button class="btn btn-default btn-sm" title="Filter berita"  data-toggle="modal" data-target="#modal-filter"><i class="fa fa-filter"></i></button>
 					<button class="btn btn-default btn-sm" title="Arsip berita"><i class="fa fa-archive"></i></button>
 					<button class="btn btn-default btn-sm reload" title="segarkan"><i class="fa fa-refresh"></i></button>
@@ -21,6 +21,7 @@
 						<tr>
 							<th class="text-center">NO</th>
 							<th colspan="2">PRODUK</th>
+							<th>STOK</th>
 							<th class="text-center text-nowrap">AKSI</th>
 						</tr>
 					</thead>
@@ -35,40 +36,21 @@
 							<td>
 								<h4>{{ $product->name }}</h4>
 								<p>{{ potong_teks(strip_tags($product->description), 217) }}</p>
-								<span class="label label-primary">{{ $product->kategori }}</span>
-								<span class="label label-success">produsen</span>
-								<span class="label label-warning">Rp. 10.000</span>
-								<span class="label label-danger">PPH</span>
+								<span class="label label-primary">{{ (!isset($product->category->name)) ? 'Lainnya' : $product->category->name }}</span>
+								<span class="label label-success">{{ $product->producer->name }}</span>
+								<span class="label label-warning">Harga: {{ $product->price }}</span>
+								<span class="label label-danger">{{ (is_null($product->tax)) ? 'Belum Termasuk PPN' : 'Termasuk PPN' }}</span>
+								{{-- TODO Diskon --}}
 								<span class="label label-danger">Diskon</span>
 							</td>
+							<td><strong>{{ $product->stock }}</strong></td>
 							<td class="text-center text-nowrap">
-								<a href="#" class="btn btn-default btn-xs" title="selengkapnya"><i class="fa fa-ellipsis-h"></i></a>
-								<a href="#" class="btn btn-primary btn-xs" title="sunting"><i class="fa fa-pencil"></i></a>
-								<a href="#" class="btn btn-warning btn-xs" title="arsipkan"><i class="fa fa-archive"></i></a>
+								<a href="{{ site_url('produk/selengkapnya/'.$product->code) }}" class="btn btn-default btn-xs" title="selengkapnya"><i class="fa fa-ellipsis-h"></i></a>
+								<a href="{{ site_url('produk/sunting/'.$product->code) }}" class="btn btn-primary btn-xs" title="sunting"><i class="fa fa-pencil"></i></a>
+								<a href="{{ site_url('produk/arsipkan/'.$product->code) }}" class="btn btn-warning btn-xs" title="arsipkan"><i class="fa fa-archive"></i></a>
 							</td>
 						</tr>
 						@endforeach
-						<tr>
-							<td class="text-center">{{$i+1}}</td>
-							<td>
-								<img src="{{base_url('assets/images/blank-avatar.png')}}" alt="thumbnail">
-							</td>
-							<td>
-								<h4>Nama Produk</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptate 
-								temporibus obcaecati, voluptates blanditiis! Eius. Lorem ipsum dolor sit amet, 
-								consectetur adipisicing elit. Distinctio ipsam cum nihil voluptatum in, alias.</p>
-								<span class="label label-primary">kategori</span>
-								<span class="label label-success">produsen</span>
-								<span class="label label-warning">Rp. 10.000</span>
-								<span class="label label-danger">Tidak termasuk PPH</span>
-							</td>
-							<td class="text-center text-nowrap">
-								<a href="#" class="btn btn-default btn-xs" title="selengkapnya"><i class="fa fa-ellipsis-h"></i></a>
-								<a href="#" class="btn btn-primary btn-xs" title="sunting"><i class="fa fa-pencil"></i></a>
-								<a href="#" class="btn btn-warning btn-xs" title="arsipkan"><i class="fa fa-archive"></i></a>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
