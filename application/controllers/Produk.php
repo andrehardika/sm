@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * 
 */
-class Etalase extends MY_Controller
+class Produk extends MY_Controller
 {
 	
 	public function __construct()
@@ -17,6 +17,7 @@ class Etalase extends MY_Controller
 
 	public function index()
 	{
-		$this->render('admin/displays/index');
+		$data['products'] = $this->products_m->get_all();
+		$this->render('admin/products/index', $data);
 	}
 }

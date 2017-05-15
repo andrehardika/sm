@@ -25,18 +25,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						@for($i=0; $i < 4; $i++)
+					<?php $i=0; ?>
+						@foreach($products as $product)
 						<tr>
-							<td class="text-center">{{$i+1}}</td>
+							<td class="text-center">{{++$i}}</td>
 							<td>
 								<img src="{{base_url('assets/images/blank-avatar.png')}}" alt="thumbnail">
 							</td>
 							<td>
-								<h4>Nama Produk</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid voluptate 
-								temporibus obcaecati, voluptates blanditiis! Eius. Lorem ipsum dolor sit amet, 
-								consectetur adipisicing elit. Distinctio ipsam cum nihil voluptatum in, alias.</p>
-								<span class="label label-primary">kategori</span>
+								<h4>{{ $product->name }}</h4>
+								<p>{{ potong_teks(strip_tags($product->description), 217) }}</p>
+								<span class="label label-primary">{{ $product->kategori }}</span>
 								<span class="label label-success">produsen</span>
 								<span class="label label-warning">Rp. 10.000</span>
 								<span class="label label-danger">PPH</span>
@@ -48,7 +47,7 @@
 								<a href="#" class="btn btn-warning btn-xs" title="arsipkan"><i class="fa fa-archive"></i></a>
 							</td>
 						</tr>
-						@endfor
+						@endforeach
 						<tr>
 							<td class="text-center">{{$i+1}}</td>
 							<td>
