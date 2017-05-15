@@ -37,7 +37,7 @@
 								<h4>{{ $product->name }}</h4>
 								<p>{{ potong_teks(strip_tags($product->description), 217) }}</p>
 								<span class="label label-primary">{{ (!isset($product->category->name)) ? 'Lainnya' : $product->category->name }}</span>
-								<span class="label label-success">{{ $product->producer->name }}</span>
+								<span class="label label-success">{{ (!isset($product->producer->name)) ? 'Tidak ada produsen' : $product->producer->name }}</span>
 								<span class="label label-warning">Harga: {{ $product->price }}</span>
 								<span class="label label-danger">{{ (is_null($product->tax)) ? 'Belum Termasuk PPN' : 'Termasuk PPN' }}</span>
 								{{-- TODO Diskon --}}

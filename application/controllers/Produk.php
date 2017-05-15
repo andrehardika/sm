@@ -23,6 +23,21 @@ class Produk extends MY_Controller
 		$this->render('admin/products/index', $data);
 	}
 
+	public function selengkapnya($code = NULL)
+	{
+		if (is_null($code) || empty($code)) {
+			$this->message('Produk tidak ditemukan', 'warning');
+			$this->go('produk');
+		}else{
+			$data['product'] = $this->products_m
+			->with_category('fields:name')
+			->with_producer('fields:name')
+			->get(array('code' => $code));
+
+			$this->render('admin/products/show', $data);
+		}
+	}
+
 	public function tambah()
 	{
 		$data['categories'] = $this->categories_m
