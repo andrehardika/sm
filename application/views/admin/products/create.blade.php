@@ -49,28 +49,28 @@
 									<div class="col-xs-12 col-sm-3">
 										<label for="length">Panjang Produk</label>
 										<div class="input-group">
-											<input class="form-control" type="number" name="length" min="0.1" placeholder="Panjang Produk">
+											<input class="form-control" type="number" name="length" placeholder="Panjang Produk">
 											<span class="input-group-addon">m</span>
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-3">
 										<label for="width">Lebar Produk</label>
 										<div class="input-group">
-											<input class="form-control" type="number" name="width" min="0.1" placeholder="Lebar Produk">
+											<input class="form-control" type="number" name="width" placeholder="Lebar Produk">
 											<span class="input-group-addon">m</span>
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-3">
 										<label for="height">Tinggi Produk</label>
 										<div class="input-group">
-											<input class="form-control" type="number" name="height" min="0.1" placeholder="Tinggi Produk">
+											<input class="form-control" type="number" name="height" placeholder="Tinggi Produk">
 											<span class="input-group-addon">m</span>
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-3">
 										<label for="weight">Berat Produk</label>
 										<div class="input-group">
-											<input class="form-control" type="number" name="weight" min="0.1" placeholder="Berat Produk">
+											<input class="form-control" type="number" name="weight" placeholder="Berat Produk">
 											<span class="input-group-addon">kg</span>
 										</div>
 									</div>
@@ -87,7 +87,7 @@
 										<input class="form-control" type="number" name="price" min="0" required placeholder="Harga Produk">
 										<div class="checkbox">
 											<label>
-											<input type="checkbox" name="tax" value="0,1"> Termasuk Pajak PPN 10% <span class="text-red">(Harga total akan tertera di halaman produk selengkapnya)</span>
+											<input type="checkbox" name="tax" value="0.1"> Termasuk Pajak PPN 10% <span class="text-red">(Harga total akan tertera di halaman produk selengkapnya)</span>
 											</label>
 										</div>
 									</div>

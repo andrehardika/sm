@@ -87,7 +87,7 @@
 										<input class="form-control" type="number" name="price" min="0" required placeholder="Harga Produk" value="{{ $product->price }}">
 										<div class="checkbox">
 											<label>
-											<input type="checkbox" name="tax" value="0,1" {{ (is_null($product->tax)) ? '' : 'checked' }}> Termasuk Pajak PPN 10% <span class="text-red">(Harga total akan tertera di halaman produk selengkapnya)</span>
+											<input type="checkbox" name="tax" value="0.1" {{ (is_null($product->tax)) ? '' : 'checked' }}> Termasuk Pajak PPN 10% <span class="text-red">(Harga total akan tertera di halaman produk selengkapnya)</span>
 											</label>
 										</div>
 									</div>
