@@ -86,7 +86,6 @@ class Products_m extends MY_Model
 	{
 		$this->has_one['category'] = array('Categories_m', 'id', 'category_id');
 		$this->has_one['producer'] = array('Producers_m', 'id', 'producer_id');
-		$this->soft_deletes = TRUE;
 		parent::__construct();
 	}
 

@@ -175,4 +175,23 @@ class Produk extends MY_Controller
 		}
 		$this->go('produk');
 	}
+
+	public function hapus($code = NULL)
+	{
+		if (is_null($code) || empty($code)) {
+			$this->message('Produk tidak ditemukan.', 'warning');
+		}else{
+			//TODO
+			//cek semua transaksi yang berhubungan dengan produk yang akan dihapus
+
+			//hapus produk
+			$query = $this->products_m->delete(array('code' => $code));
+			if ($query === FALSE) {
+				$this->message('Terjadi kesalahan sistem saat menghapus produk! Coba lagi nanti.', 'danger');
+			}else{
+				$this->message('Produk berhasil dihapus', 'success');
+			}
+		}
+		$this->go('produk');
+	}
 }

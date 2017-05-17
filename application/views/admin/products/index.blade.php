@@ -21,6 +21,7 @@
 						<tr>
 							<th class="text-center">NO</th>
 							<th colspan="2">PRODUK</th>
+							<th>HARGA ASLI</th>
 							<th>STOK</th>
 							<th class="text-center text-nowrap">AKSI</th>
 						</tr>
@@ -38,16 +39,16 @@
 								<p>{{ potong_teks(strip_tags($product->description), 217) }}</p>
 								<span class="label label-primary">{{ (!isset($product->category->name)) ? 'Lainnya' : $product->category->name }}</span>
 								<span class="label label-success">{{ (!isset($product->producer->name)) ? 'Tidak ada produsen' : $product->producer->name }}</span>
-								<span class="label label-warning">Harga: {{ $product->price }}</span>
-								<span class="label label-danger">{{ (is_null($product->tax)) ? 'Belum Termasuk PPN' : 'Termasuk PPN' }}</span>
+								<span class="label label-warning">{{ (is_null($product->tax)) ? 'Belum Termasuk PPN' : 'Termasuk PPN' }}</span>
 								{{-- TODO Diskon --}}
 								<span class="label label-danger">Diskon</span>
 							</td>
+							<td><strong>{{ $product->price }}</strong></td>
 							<td><strong>{{ $product->stock }}</strong></td>
 							<td class="text-center text-nowrap">
 								<a href="{{ site_url('produk/selengkapnya/'.$product->code) }}" class="btn btn-default btn-xs" title="selengkapnya"><i class="fa fa-ellipsis-h"></i></a>
 								<a href="{{ site_url('produk/sunting/'.$product->code) }}" class="btn btn-primary btn-xs" title="sunting"><i class="fa fa-pencil"></i></a>
-								<a href="{{ site_url('produk/arsipkan/'.$product->code) }}" class="btn btn-warning btn-xs" title="arsipkan"><i class="fa fa-archive"></i></a>
+								<a href="{{ site_url('produk/hapus/'.$product->code) }}" class="btn btn-danger btn-xs" title="hapus" onclick="return confirm('Produk akan dihapus. Anda Yakin?')"><i class="fa fa-trash"></i></a>
 							</td>
 						</tr>
 						@endforeach
