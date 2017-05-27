@@ -4,7 +4,7 @@
 		<ul class="sidebar-nav">
 			<li class="sidebar-close"><a href="#"><i class="fa fa-fw fa-close"></i></a></li>
 			<li><a href="#"><i class="fa fa-fw fa-home"></i><span class="nav-label">Dashboard</span></a></li>
-			<li class="nav-label">Kelurahan</li>
+			<li class="nav-label">Transaksi</li>
 			<li><a href="#"><i class="fa fa-fw fa-info-circle"></i><span class="nav-label">Profil</span></a></li>
 			<li><a href="{{site_url('ui/kelurahan')}}"><i class="fa fa-fw fa-bank"></i><span class="nav-label">Kelurahan</span></a></li>
 			<li><a href="{{site_url('ui/konfirmasi_kelurahan')}}"><i class="fa fa-fw fa-check"></i><span class="nav-label">Konfirmasi</span></a></li>
