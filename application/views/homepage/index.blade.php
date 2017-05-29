@@ -59,7 +59,7 @@
                 <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="heading dropdown-toggle">
                   <span class="cart-icon pull-left flip"></span>
                   <span id="cart-total">Keranjang Belanja</span></button>
-                  <!-- <ul class="dropdown-menu">
+                  <ul class="dropdown-menu">
                     <li>
                       <table class="table">
                         <tbody>
@@ -105,7 +105,7 @@
                         <p class="checkout"><a href="cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> View Cart</a>&nbsp;&nbsp;&nbsp;<a href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i> Checkout</a></p>
                       </div>
                     </li>
-                  </ul> -->
+                  </ul>
                 </div>
               </div>
               <!-- Mini Cart End-->
