@@ -64,17 +64,17 @@
                       <table class="table">
                         <tbody>
                           <tr>
-                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Xitefun Causal Wear Fancy Shoes" alt="Xitefun Causal Wear Fancy Shoes" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
-                            <td class="text-left"><a href="product.html">Xitefun Causal Wear Fancy Shoes</a></td>
+                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Nama Produk" alt="Nama Produk" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
+                            <td class="text-left"><a href="product.html">Nama Produk</a></td>
                             <td class="text-right">x 1</td>
                             <td class="text-right">$902.00</td>
                             <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
                           </tr>
                           <tr>
-                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Aspire Ultrabook Laptop" alt="Aspire Ultrabook Laptop" src="image/product/samsung_tab_1-50x50.jpg"></a></td>
-                            <td class="text-left"><a href="product.html">Aspire Ultrabook Laptop</a></td>
+                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Nama Produk" alt="Nama Produk" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
+                            <td class="text-left"><a href="product.html">Nama Produk</a></td>
                             <td class="text-right">x 1</td>
-                            <td class="text-right">$230.00</td>
+                            <td class="text-right">$902.00</td>
                             <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
                           </tr>
                         </tbody>
@@ -86,19 +86,15 @@
                           <tbody>
                             <tr>
                               <td class="text-right"><strong>Sub-Total</strong></td>
-                              <td class="text-right">$940.00</td>
+                              <td class="text-right">Rp 1000,-</td>
                             </tr>
                             <tr>
-                              <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                              <td class="text-right">$4.00</td>
-                            </tr>
-                            <tr>
-                              <td class="text-right"><strong>VAT (20%)</strong></td>
-                              <td class="text-right">$188.00</td>
+                              <td class="text-right"><strong>Pajak (10%)</strong></td>
+                              <td class="text-right">Rp 500</td>
                             </tr>
                             <tr>
                               <td class="text-right"><strong>Total</strong></td>
-                              <td class="text-right">$1,132.00</td>
+                              <td class="text-right">Rp 2.000</td>
                             </tr>
                           </tbody>
                         </table>
